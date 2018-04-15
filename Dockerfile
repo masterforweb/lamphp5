@@ -9,4 +9,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install mysql \
     && docker-php-ext-install mysqli \
+    && userdel www-data \
+    && useradd -u 1001 www-data \
     && a2enmod rewrite
